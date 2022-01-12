@@ -8,7 +8,7 @@ import {
   faUsers,
   faPowerOff,
 } from "@fortawesome/free-solid-svg-icons";
-
+import TweetModal from "../modal/TweetModal/TweetModal";
 import { logoutApi } from "../../api/auth";
 import useAuth from "../../hooks/useAuth";
 
@@ -21,7 +21,7 @@ export default function LeftMenu(props) {
   const { setRefreshCheckLogin } = props;
   const [showModal, setShowModal] = useState(false);
   const user = useAuth();
-
+ 
 
   const logout = () => {
     logoutApi();
@@ -46,6 +46,8 @@ export default function LeftMenu(props) {
       </Link>
 
       <Button onClick={() => setShowModal(true)}>Twittoar</Button>
+
+      <TweetModal show={showModal} setShow={setShowModal} />
 
       
     </div>
